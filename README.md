@@ -1,1 +1,1 @@
-[Vercel](https://jeremy.vercel.app)&nbsp;&nbsp;&nbsp;[Netlify](https://jeremy-ye.netlify.app)
+[Vercel](https://jeremye.vercel.app)&nbsp;&nbsp;&nbsp;[Netlify](https://jeremye.netlify.app)
