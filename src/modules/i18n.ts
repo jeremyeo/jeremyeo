@@ -14,11 +14,16 @@ const messages = Object.fromEntries(
     }),
 )
 
+const locale = useLocalStorage('locale', 'zh-CN')
 export const install: UserModule = ({ app }) => {
   const i18n = createI18n({
     legacy: false,
-    locale: 'en',
+    locale: locale.value,
     messages,
+  })
+
+  watch(i18n.global.locale, (newValue) => {
+    locale.value = newValue
   })
 
   app.use(i18n)
