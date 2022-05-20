@@ -19,6 +19,7 @@ const toggleLocales = () => {
     <div text-xl flex items-center gap-5>
       <i i="carbon-blog" icon-btn :title="t('button.blog')" @click="router.push('/blog')" />
       <i i="carbon-idea" icon-btn :title="t('button.projects')" @click="router.push('/projects')" />
+      <a i="carbon-logo-github" title="GitHub" icon-btn href="https://github.com/jremye" target="_blank" />
       <i i="carbon-language" icon-btn :title="t('button.toggle_langs')" @click="toggleLocales" />
       <i i="carbon-sun dark:carbon-moon" icon-btn :title="t('button.toggle_dark')" @click="toggleDark()" />
     </div>
