@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { articles, gotoPage, pagination } from '~/posts/dataProvider'
-const { t } = useI18n()
 
+useHead({
+  title: 'Blog - Jeremy Ye',
+})
+
+const { t } = useI18n()
 const router = useRouter()
 const route = useRoute()
 

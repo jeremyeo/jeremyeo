@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import { type Project } from '~/types'
+
+useHead({
+  title: 'Projects - Jeremy Ye',
+})
+
 const { t } = useI18n()
 const projects: Project[] = [
   {
