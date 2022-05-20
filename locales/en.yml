@@ -1,0 +1,14 @@
+button:
+  about: About
+  back: Back
+  blog: Blog
+  go: GO
+  home: Home
+  projects: Projects
+  toggle_dark: Toggle theme
+  toggle_langs: Change languages
+intro:
+  desc: Opinionated Vite Starter Template
+  illustrator: Application of SVG drawing based on fabric.js
+not-found: Not found
+nothing: Nothing

@@ -1,0 +1,14 @@
+button:
+  about: 关于
+  back: 返回
+  go: 确定
+  home: 首页
+  toggle_dark: 切换主题
+  toggle_langs: 切换语言
+  projects: 项目
+  blog: 博客
+intro:
+  desc: 固执己见的 Vite 项目模板
+  illustrator: 基于 fabric.js 的 SVG 绘制应用
+nothing: 主人很懒什么都没有写
+not-found: 未找到页面
