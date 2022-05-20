@@ -25,7 +25,7 @@ const changePage = (page: number) => {
 
     <div flex="~ col gap-xl" mb-2xl>
       <BlogCard v-for="article in articles" :key="article.id" :article="article" />
-      <p v-if="!articles.length" opacity-50>
+      <p v-if="!articles.length" opacity-50 px-1>
         {{ t('nothing') }}
       </p>
     </div>
