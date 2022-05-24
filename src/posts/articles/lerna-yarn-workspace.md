@@ -70,14 +70,15 @@ title: 基于 lerna & yarn(workspace) 实现 monorepo
 使用 `lerna` 也可以管理依赖，但略显繁琐，使用 `yarn` 的 `workspace` 模式会很方便
 
 - 安装所有依赖
-  - yarn (install)   -   安装所有项目的依赖，会根据 workspace 的配置进行安装与依赖
+  > yarn (install)
+	- 安装所有项目的依赖，会根据 workspace 的配置进行安装与依赖
 
 - 管理全局依赖
-  - yarn -W add / remove [-D]  [package name]
+  > yarn -W add / remove [-D]  [package name]
 
 - 管理项目依赖
-  - yarn workspace [package name] add / remove [package name]@[version]
-    - 若是项目建的依赖关联需指定对应的版本号，否则会去线上源寻找依赖
+  > yarn workspace [package name] add / remove [package name]@[version]
+  - 若是项目建的依赖关联需指定对应的版本号，否则会去线上源寻找依赖
 
 
 

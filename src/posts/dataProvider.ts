@@ -1,4 +1,4 @@
-import indexes from './articles/indexes.json'
+import indexes from './indexes.json'
 import type { Article } from '~/types'
 
 const pageSize = 1

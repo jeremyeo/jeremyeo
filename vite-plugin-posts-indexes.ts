@@ -43,7 +43,7 @@ function generateIndex() {
     }
     catch (e) {}
   })
-  writeFileSync(`${POSTS_DIR}/indexes.json`, `${JSON.stringify(postsIndex)}`)
+  writeFileSync(`${dirname(POSTS_DIR)}/indexes.json`, `${JSON.stringify(postsIndex)}`)
 }
 
 export default function PostsIndexes() {

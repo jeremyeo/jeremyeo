@@ -19,6 +19,7 @@ specifiers:
   eslint: ^8.15.0
   eslint-plugin-cypress: ^2.12.1
   https-localhost: ^4.7.1
+  markdown-it-anchor: ^8.6.4
   markdown-it-link-attributes: ^4.0.0
   markdown-it-prism: ^2.2.4
   nprogress: ^0.2.0
@@ -72,6 +73,7 @@ devDependencies:
   eslint: 8.15.0
   eslint-plugin-cypress: 2.12.1_eslint@8.15.0
   https-localhost: 4.7.1
+  markdown-it-anchor: 8.6.4
   markdown-it-link-attributes: 4.0.0
   markdown-it-prism: 2.2.4
   pnpm: 7.0.1
@@ -5273,6 +5275,13 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       sourcemap-codec: 1.4.8
+    dev: true
+
+  /markdown-it-anchor/8.6.4:
+    resolution: {integrity: sha512-Ul4YVYZNxMJYALpKtu+ZRdrryYt/GlQ5CK+4l1bp/gWXOG2QWElt6AqF3Mih/wfUKdZbNAZVXGR73/n6U/8img==}
+    peerDependencies:
+      '@types/markdown-it': '*'
+      markdown-it: '*'
     dev: true
 
   /markdown-it-link-attributes/4.0.0:
