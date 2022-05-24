@@ -1,3 +1,7 @@
+---
+title: 基于 lerna & yarn(workspace) 实现 monorepo
+---
+
 # 基于 `lerna` & `yarn(workspace)` 实现 `monorepo`
 
 公司的项目随着不断的开发变得越发臃肿，于是将 `UI` 与算法逻辑抽离成独立的库，再由主项目与其他项目依赖，便于开发与维护，同时提升主项目的打包速度。
@@ -20,6 +24,9 @@
 	  "useWorkspaces": true,
 	  "packages": ["packages/*"],
 	  "command": {
+    "publish": {
+	      "npmClient": "npm"
+	    },
 	    "bootstrap": {
 	      "hoist": true,
 	      "npmClientArgs": [
@@ -27,11 +34,6 @@
 	        "--no-ci",
 	        "--registry https://registry.npm.taobao.org/"
 	      ]
-	    }
-	  },
-	  "command": {
-	    "publish": {
-	      "npmClient": "npm"
 	    }
 	  },
 	  "changelog": {
@@ -59,7 +61,7 @@
    }
    ```
 
-   
+
 
 ## 使用 `yarn` 管理依赖
 
