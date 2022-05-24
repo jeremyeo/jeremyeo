@@ -30,7 +30,7 @@ const changePage = (page: number) => {
       </p>
     </div>
 
-    <ul flex="~ gap-xl wrap">
+    <ul v-if="pagination.pageTotal > 1" flex="~ gap-xl wrap">
       <li v-for="page in pagination.pageTotal" :key="page">
         <button
           transition
