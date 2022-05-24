@@ -20,32 +20,34 @@ title: 基于 lerna & yarn(workspace) 实现 monorepo
 
 	```json
 	{
-	  "npmClient": "yarn",
-	  "useWorkspaces": true,
-	  "packages": ["packages/*"],
-	  "command": {
-    "publish": {
-	      "npmClient": "npm"
-	    },
-	    "bootstrap": {
-	      "hoist": true,
-	      "npmClientArgs": [
-	        "--no-package-lock",
-	        "--no-ci",
-	        "--registry https://registry.npm.taobao.org/"
-	      ]
-	    }
-	  },
-	  "changelog": {
-	    "labels": {
-	      "feat": "New Feature",
-	      "fix": "Bug Fix",
-	      "docs": "Documentation",
-	      "types": "Types",
-	      "perf": "Performance",
-	      "refactor": "Refactor"
-	    }
-	  }
+		"npmClient": "yarn",
+		"useWorkspaces": true,
+		"packages": [
+			"packages/*"
+		],
+		"command": {
+			"publish": {
+				"npmClient": "npm"
+			},
+			"bootstrap": {
+				"hoist": true,
+				"npmClientArgs": [
+					"--no-package-lock",
+					"--no-ci",
+					"--registry https://registry.npm.taobao.org/"
+				]
+			}
+		},
+		"changelog": {
+			"labels": {
+				"feat": "New Feature",
+				"fix": "Bug Fix",
+				"docs": "Documentation",
+				"types": "Types",
+				"perf": "Performance",
+				"refactor": "Refactor"
+			}
+		}
 	}
 	```
 	
@@ -61,7 +63,7 @@ title: 基于 lerna & yarn(workspace) 实现 monorepo
    }
    ```
 
-
+   
 
 ## 使用 `yarn` 管理依赖
 

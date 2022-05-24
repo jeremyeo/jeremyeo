@@ -21,7 +21,6 @@ const view = (article: Article) => {
     flex="col gap-xl"
     items-center
     cursor-pointer
-    title="project.name"
     @click="view(article)"
   >
     <div class="name" text-5>

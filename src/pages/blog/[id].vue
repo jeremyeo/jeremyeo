@@ -17,8 +17,8 @@ cpm.value = defineAsyncComponent(() => new Promise((resolve) => {
 </script>
 
 <template>
-  <component :is="cpm" />
   <div class="page-container">
     <button i-carbon-arrow-left @click="router.back()" />
   </div>
+  <component :is="cpm" />
 </template>
