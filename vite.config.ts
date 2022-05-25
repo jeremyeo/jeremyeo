@@ -14,7 +14,7 @@ import Inspect from 'vite-plugin-inspect'
 import Prism from 'markdown-it-prism'
 import LinkAttributes from 'markdown-it-link-attributes'
 import Unocss from 'unocss/vite'
-import PostInfoGenerator from './vite-plugin-posts-indexes'
+import ArticleIndexesGenerator from './vite-plugin-articles-indexes'
 const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
 
 export default defineConfig({
@@ -125,7 +125,7 @@ export default defineConfig({
     // Visit http://localhost:3333/__inspect/ to see the inspector
     Inspect(),
 
-    PostInfoGenerator(),
+    ArticleIndexesGenerator(),
   ],
 
   // https://github.com/antfu/vite-ssg

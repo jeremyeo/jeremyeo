@@ -3,6 +3,8 @@ import { readFileSync, readdirSync, statSync, writeFileSync } from 'fs'
 import { fileURLToPath, pathToFileURL } from 'url'
 import YAML from 'yaml'
 import { paramCase } from 'change-case'
+import { createLogger } from 'vite'
+import colors from 'picocolors'
 
 interface Formatter {
   [key: string]: any
@@ -11,8 +13,9 @@ interface Formatter {
   createDate: Date
 }
 
-const POSTS_DIR = join(dirname(fileURLToPath(import.meta.url)), 'src/posts/articles')
-const markdownReg = new RegExp(`${pathToFileURL(POSTS_DIR).href}.*\.md$`)
+const BLOG_DIR = join(dirname(fileURLToPath(import.meta.url)), 'src/pages/blog')
+const ARTICLES_DIR = join(dirname(fileURLToPath(import.meta.url)), 'src/articles')
+const markdownReg = new RegExp(`${pathToFileURL(BLOG_DIR).href}.*\.md$`)
 
 function isPostsMD(file: string) {
   return markdownReg.test(pathToFileURL(file).href)
@@ -20,12 +23,12 @@ function isPostsMD(file: string) {
 
 // 构建文章索引
 function generateIndex() {
-  const postFiles = readdirSync(POSTS_DIR)
-    .filter((fileName: string) => isPostsMD(`${POSTS_DIR}/${fileName}`))
+  const postFiles = readdirSync(BLOG_DIR)
+    .filter((fileName: string) => isPostsMD(`${BLOG_DIR}/${fileName}`))
 
   const postsIndex: Formatter[] = []
   postFiles.forEach((fileName: string) => {
-    const path = `${POSTS_DIR}/${fileName}`
+    const path = join(BLOG_DIR, fileName)
     const stat = statSync(path)
     if (!stat.isFile())
       return
@@ -43,18 +46,28 @@ function generateIndex() {
     }
     catch (e) {}
   })
-  writeFileSync(`${dirname(POSTS_DIR)}/indexes.json`, `${JSON.stringify(postsIndex)}`)
+
+  const indexesFileName = join(ARTICLES_DIR, 'indexes.json')
+  writeFileSync(indexesFileName, `${JSON.stringify(postsIndex)}`)
+  return indexesFileName
 }
 
+const log = createLogger('info')
+const prefix = colors.cyan(colors.bold('[artg]'))
+const format = (message: string) => {
+  return `${colors.dim(new Date().toLocaleTimeString())} ${prefix} ${message}`
+}
 export default function PostsIndexes() {
   return {
-    name: 'posts-indexes',
+    name: 'article-indexes-generator',
     buildStart() {
-      generateIndex()
+      setTimeout(() => {
+        log.info(format(`articles indexes has been created in ${generateIndex()}`))
+      })
     },
     handleHotUpdate({ file }: { file: string }) {
       if (isPostsMD(file))
-        generateIndex()
+        log.info(format(`articles indexes has been created in ${generateIndex()}`))
     },
   }
 }

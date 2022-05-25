@@ -12,8 +12,8 @@ const toggleLocales = () => {
 </script>
 
 <template>
-  <header border="b-1 gray-500/10 dark:gray-500/20" flex justify-between items-center px-xl>
-    <div class="logo" shrink-0 w-240px text-xl>
+  <header border="b-1 gray-500/10 dark:gray-500/20" flex="~ gap-xl" justify-between items-center px-xl>
+    <div class="logo" shrink-0 text-xl>
       <a cursor-pointer @click="router.push('/')">Jeremy</a>
     </div>
     <div text-xl flex items-center gap-5>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { articles, gotoPage, pagination } from '~/posts/dataProvider'
+import { articles, gotoPage, pagination } from '~/articles/dataProvider'
 
 useHead({
   title: 'Blog - Jeremy Ye',
