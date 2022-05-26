@@ -19,46 +19,45 @@ title: 基于 lerna & yarn(workspace) 实现 monorepo
 
 ```json
 {
-	"npmClient": "yarn",
-	"useWorkspaces": true,
-	"packages": [
-		"packages/*"
-	],
-	"command": {
-		"publish": {
-			"npmClient": "npm"
-		},
-		"bootstrap": {
-			"hoist": true,
-			"npmClientArgs": [
-				"--no-package-lock",
-				"--no-ci",
-				"--registry https://registry.npm.taobao.org/"
-			]
-		}
-	},
-	"changelog": {
-		"labels": {
-			"feat": "New Feature",
-			"fix": "Bug Fix",
-			"docs": "Documentation",
-			"types": "Types",
-			"perf": "Performance",
-			"refactor": "Refactor"
-		}
-	}
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "packages": [
+    "packages/*"
+  ],
+  "command": {
+    "publish": {
+      "npmClient": "npm"
+    },
+    "bootstrap": {
+      "hoist": true,
+      "npmClientArgs": [
+        "--no-package-lock",
+        "--no-ci",
+        "--registry https://registry.npm.taobao.org/"
+      ]
+    }
+  },
+  "changelog": {
+    "labels": {
+      "feat": "New Feature",
+      "fix": "Bug Fix",
+      "docs": "Documentation",
+      "types": "Types",
+      "perf": "Performance",
+      "refactor": "Refactor"
+    }
+  }
 }
 ```
-	
-	
-	
+
+
 4. 在 `package.json` 中配置 workspace
 
 ```json
 {
-	"name": "root",
-	"private": true,
-	"workspaces": ["packages/*"]
+  "name": "root",
+  "private": true,
+  "workspaces": ["packages/*"]
 }
 ```
 
@@ -73,7 +72,6 @@ title: 基于 lerna & yarn(workspace) 实现 monorepo
 # 会根据 workspace 的配置进行安装与依赖
 yarn (install)
 ```
-	
 
 - 管理全局依赖
 ```shell
