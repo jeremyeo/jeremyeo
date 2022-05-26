@@ -1,14 +1,19 @@
 import indexes from './indexes.json'
 import type { Article } from '~/types'
 
-(indexes as Article[]).sort((a, b) => +new Date(b.updateDate) - +new Date(a.updateDate))
+(indexes as Article[]).sort((a, b) => {
+  const createDateSorted = +new Date(b.createDate) - +new Date(a.createDate)
+  return createDateSorted === 0 ? +new Date(b.updateDate) - +new Date(a.updateDate) : createDateSorted
+})
 
-const pageSize = 1
+const pageSize = 10
 export const pagination = reactive({
   current: 1,
   pageSize,
-  pageTotal: Math.round(indexes.length / pageSize),
+  pageTotal: Math.ceil(indexes.length / pageSize),
 })
+
+export const findArticleInfoById = (id: string) => indexes.find(article => article.id === id)
 
 export const articles = computed<Article[]>(() => {
   const start = (pagination.current - 1) * pagination.pageSize

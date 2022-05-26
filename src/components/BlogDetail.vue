@@ -1,10 +1,15 @@
 <script setup lang="ts">
+import dayjs from 'dayjs'
+import { findArticleInfoById } from '~/articles'
+
 defineProps<{
   frontmatter: Record<string, any>
 }>()
 
 const router = useRouter()
+const route = useRoute()
 const content = ref<HTMLDivElement>()
+const article = findArticleInfoById((route.name as string).replace('blog-', ''))
 
 onMounted(() => {
   const navigate = () => {
@@ -76,7 +81,14 @@ onMounted(() => {
       <button i-carbon-arrow-left @click="router.push('/blog')" />
     </div>
     <article ref="content" class="prose prose-truegray m-auto text-left prose-invert">
-      <h1>{{ frontmatter.title }}</h1>
+      <template v-if="$route.path.includes('/blog')">
+        <h1>
+          {{ frontmatter.title }}
+        </h1>
+        <p v-if="article" text-gray-500 text-opacity-50>
+          updated on {{ dayjs(article.updateDate).format('YYYY-MM-DD') }}
+        </p>
+      </template>
       <slot />
     </article>
   </div>

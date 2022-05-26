@@ -1,6 +1,7 @@
 import { dirname, join } from 'path'
 import { fileURLToPath, pathToFileURL } from 'url'
-import { readFileSync, readdirSync, statSync, writeFileSync } from 'fs'
+import { readFileSync, readdirSync, renameSync, statSync, writeFileSync } from 'fs'
+import { argv, cwd } from 'process'
 import YAML from 'yaml'
 import colors from 'picocolors'
 import { createLogger } from 'vite'
@@ -13,8 +14,9 @@ interface Formatter {
   createDate: Date
 }
 
-const BLOG_DIR = join(dirname(fileURLToPath(import.meta.url)), 'src/pages/blog')
-const ARTICLES_DIR = join(dirname(fileURLToPath(import.meta.url)), 'src/articles')
+let MODE = 'production'
+const BLOG_DIR = join(cwd(), 'src/pages/blog')
+const ARTICLES_DIR = join(cwd(), 'src/articles')
 const markdownReg = new RegExp(`${pathToFileURL(BLOG_DIR).href}.*\.md$`)
 
 function isArticleMD(file: string) {
@@ -40,8 +42,14 @@ export function generateIndex() {
     try {
       const formatter = YAML.parse(yaml)
       formatter.id = paramCase(fileName.replace('.md', ''))
-      formatter.updateDate = stat.mtime
-      formatter.createDate = stat.ctime
+
+      if (!fileName.includes(formatter.id) && MODE === 'production')
+        renameSync(path, join(BLOG_DIR, `${formatter.id}.md`))
+
+      if (!formatter.updateDate)
+        formatter.updateDate = stat.mtime
+      if (!formatter.createDate)
+        formatter.createDate = stat.ctime
       articleIndexes.push(formatter)
     }
     catch (e) {}
@@ -62,9 +70,15 @@ const createIndexesFile = () => {
   writeFileSync(indexesFileName, `${JSON.stringify(indexes)}`)
   log.info(format(`articles indexes has been created in ${indexesFileName}`))
 }
+
+if (argv.includes('--fix'))
+  createIndexesFile()
+
 export default function ArticleIndexes() {
+  MODE = 'development'
   return {
     name: 'article-indexes-generator',
+    apply: 'serve',
     buildStart() {
       setTimeout(() => {
         createIndexesFile()

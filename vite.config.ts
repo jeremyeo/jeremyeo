@@ -28,6 +28,7 @@ export default defineConfig({
   },
 
   plugins: [
+    ArticleIndexesGenerator(),
     Vue({
       include: [/\.vue$/, /\.md$/],
       reactivityTransform: true,
@@ -137,7 +138,6 @@ export default defineConfig({
     // Visit http://localhost:3333/__inspect/ to see the inspector
     Inspect(),
 
-    ArticleIndexesGenerator(),
   ],
 
   // https://github.com/antfu/vite-ssg

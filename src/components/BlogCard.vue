@@ -33,7 +33,7 @@ const view = (article: Article) => {
       {{ article.title }}
     </div>
     <div class="desc" text-3 opacity-50>
-      {{ dayjs(article.updateDate).format('YYYY-MM-DD') }}
+      {{ dayjs(article.createDate).format('YYYY-MM-DD') }}
     </div>
   </div>
 </template>
