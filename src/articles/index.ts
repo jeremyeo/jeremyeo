@@ -1,8 +1,9 @@
 import indexes from './indexes.json'
 import type { Article } from '~/types'
 
-const pageSize = 1
+(indexes as Article[]).sort((a, b) => +new Date(b.updateDate) - +new Date(a.updateDate))
 
+const pageSize = 1
 export const pagination = reactive({
   current: 1,
   pageSize,

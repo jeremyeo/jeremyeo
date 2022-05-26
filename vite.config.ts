@@ -2,6 +2,7 @@ import path from 'path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
+import Unocss from 'unocss/vite'
 import generateSitemap from 'vite-ssg-sitemap'
 import Layouts from 'vite-plugin-vue-layouts'
 import Components from 'unplugin-vue-components/vite'
@@ -10,12 +11,14 @@ import Markdown from 'vite-plugin-md'
 import { VitePWA } from 'vite-plugin-pwa'
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import Inspect from 'vite-plugin-inspect'
-// import Anchor from 'markdown-it-anchor'
+import Anchor from 'markdown-it-anchor'
 import Prism from 'markdown-it-prism'
+// @ts-expect-error missing types
+import TOC from 'markdown-it-table-of-contents'
 import LinkAttributes from 'markdown-it-link-attributes'
-import Unocss from 'unocss/vite'
-import PostInfoGenerator from './vite-plugin-posts-indexes'
-const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
+import ArticleIndexesGenerator from './articles.indexes'
+
+import { slugify } from './slugify'
 
 export default defineConfig({
   resolve: {
@@ -67,20 +70,29 @@ export default defineConfig({
     // https://github.com/antfu/vite-plugin-md
     // Don't need this? Try vitesse-lite: https://github.com/antfu/vitesse-lite
     Markdown({
-      wrapperClasses: markdownWrapperClasses,
+      wrapperComponent: 'BlogDetail',
       headEnabled: true,
       markdownItSetup(md) {
         // https://prismjs.com/
         md.use(Prism)
-        // md.use(Anchor, {
-        //   permalink: Anchor.permalink.headerLink({ safariReaderFix: true }),
-        // })
+        md.use(Anchor, {
+          slugify,
+          permalink: Anchor.permalink.linkInsideHeader({
+            symbol: '#',
+            renderAttrs: () => ({ 'aria-hidden': 'true' }),
+          }),
+        })
         md.use(LinkAttributes, {
           matcher: (link: string) => /^https?:\/\//.test(link),
           attrs: {
             target: '_blank',
             rel: 'noopener',
           },
+        })
+
+        md.use(TOC, {
+          includeLevel: [1, 2, 3],
+          slugify,
         })
       },
     }),
@@ -125,7 +137,7 @@ export default defineConfig({
     // Visit http://localhost:3333/__inspect/ to see the inspector
     Inspect(),
 
-    PostInfoGenerator(),
+    ArticleIndexesGenerator(),
   ],
 
   // https://github.com/antfu/vite-ssg

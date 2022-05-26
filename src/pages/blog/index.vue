@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { articles, gotoPage, pagination } from '~/posts/dataProvider'
+import { articles, gotoPage, pagination } from '~/articles'
 
 useHead({
   title: 'Blog - Jeremy Ye',
@@ -9,7 +9,7 @@ const { t } = useI18n()
 const router = useRouter()
 const route = useRoute()
 
-gotoPage(Number(route.query.page) || 1)
+gotoPage(Number(route.query.page) || pagination.current)
 
 const changePage = (page: number) => {
   router.push({ name: 'blog', query: { page } })

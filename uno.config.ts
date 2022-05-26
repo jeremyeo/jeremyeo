@@ -2,7 +2,6 @@ import {
   defineConfig,
   presetAttributify,
   presetIcons,
-  presetTypography,
   presetUno,
   presetWebFonts,
   transformerDirectives,
@@ -10,7 +9,14 @@ import {
 } from 'unocss'
 
 export default defineConfig({
+  theme: {
+    colors: {
+      blight: '#fff',
+      bdark: '#050505',
+    },
+  },
   shortcuts: [
+    ['page-container', 'w-full max-w-65ch mx-auto px-xl'],
     ['transition-inout', 'transition duration-200 ease-in-out'],
     ['btn', 'px-4 py-1 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'],
     ['icon-btn', 'inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600'],
@@ -26,7 +32,6 @@ export default defineConfig({
         icons8: () => import('@iconify/json/json/icons8.json'),
       },
     }),
-    presetTypography(),
     presetWebFonts({
       // fonts: {
       //   sans: 'DM Sans',

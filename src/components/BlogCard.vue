@@ -5,11 +5,17 @@ defineProps<{
   article: Article
 }>()
 
-// const { t } = useI18n()
 const router = useRouter()
+const route = useRoute()
 
 const view = (article: Article) => {
-  router.push(`/blog/${article.id}`)
+  router.push({
+    path: `/blog/${article.id}`,
+    params: {
+      path: route.path,
+      query: JSON.stringify(route.query),
+    },
+  })
 }
 </script>
 
