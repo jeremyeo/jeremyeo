@@ -1,1 +1,1 @@
-[Blog - Vercel](https://jeremye.vercel.app)&nbsp;&nbsp;&nbsp;[Blog - Netlify](https://jeremye.netlify.app)
+[Blog](https://blog.jeremye.site)
