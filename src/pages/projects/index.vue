@@ -23,7 +23,7 @@ const projects: Project[] = [
     </h1>
     <div grid="~ cols-2 gap-2">
       <ProjectCard
-        v-for="project in [...projects, ...projects, ...projects]"
+        v-for="project in projects"
         :key="project.name"
         :project="project"
         flex-1 min-w-300px
