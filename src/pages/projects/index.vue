@@ -18,12 +18,12 @@ const projects: Project[] = [
 
 <template>
   <div class="page-container">
-    <h1 text-4xl font-bold mt-xl mb-4xl>
+    <h1 text-3xl font-bold mt-xl mb-4xl>
       {{ t('button.projects') }}
     </h1>
-    <div flex="~ wrap gap-xl">
+    <div grid="~ cols-2 gap-2">
       <ProjectCard
-        v-for="project in projects"
+        v-for="project in [...projects, ...projects, ...projects]"
         :key="project.name"
         :project="project"
         flex-1 min-w-300px

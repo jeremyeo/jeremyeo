@@ -4,10 +4,10 @@ title: Introduction - Jeremy Ye
 
 # Jeremy Ye
 
-Hey, I am Jeremy Ye. I am currently working as a front-end development engineer in Hangzhou, Zhejiang Province.
+Hello, I'm Jeremy Ye. Currently, I work as a front-end development engineer in Hangzhou, Zhejiang Province. I love exploring new and interesting things and enjoy sharing my experiences with others.
 
-I love to explore new and interesting things, like to share some experiences, and hope to communicate with everyone and grow together.
+I hope to communicate with everyone and grow together.
 
-I like to sing and travel, and I prefer the feeling of being close to nature compared to the bustling city.
+In my free time, I enjoy singing and traveling, and I prefer the feeling of being close to nature over the hustle and bustle of the city.
 
 Nice to meet you!

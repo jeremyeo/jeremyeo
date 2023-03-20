@@ -82,11 +82,12 @@ onMounted(() => {
     </div>
     <article ref="content" class="prose prose-truegray m-auto text-left prose-invert">
       <template v-if="$route.path.includes('/blog')">
-        <h1>
+        <h1 style="margin-bottom: 10px;">
           {{ frontmatter.title }}
         </h1>
-        <p v-if="article" text-gray-500 text-opacity-50>
-          updated on {{ dayjs(article.updateDate).format('YYYY-MM-DD') }}
+        <p v-if="article" opacity-50 flex="~ gap-xl" style="margin-top: 0;">
+          <span>Created on {{ dayjs(article.createDate).format('YYYY-MM-DD') }}</span>
+          <span>Updated on {{ dayjs(article.updateDate).format('YYYY-MM-DD') }}</span>
         </p>
       </template>
       <slot />

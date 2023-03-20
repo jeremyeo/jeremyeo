@@ -19,7 +19,7 @@ const changePage = (page: number) => {
 
 <template>
   <div class="page-container">
-    <h1 text-4xl font-bold mt-xl mb-4xl>
+    <h1 text-3xl font-bold mt-xl mb-4xl>
       {{ t('button.blog') }}
     </h1>
 

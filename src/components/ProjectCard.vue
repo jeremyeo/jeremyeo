@@ -10,11 +10,10 @@ const { t } = useI18n()
 <template>
   <a
     flex items-center
-    gap-xl
-    px-3 py-4
+    gap-xl px-3 py-4
     transition="~ duration-400 ease"
     c-black dark:c-white opacity-60 hover:opacity-100
-    class="hover:bg-gray-200/20 dark:hover:bg-transparent"
+    class="hover:bg-gray-200/30 dark:hover:bg-gray-200/05"
     :title="project.name"
     :href="project.url"
     target="_blank"

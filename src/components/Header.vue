@@ -16,7 +16,7 @@ const toggleLocales = () => {
   <header sticky top-0 backdrop-blur-md z-99 class="bg-blight/80 dark:bg-bdark/80" h-60px lh-60px text-center>
     <nav inline-flex="~ gap-xl" justify-between items-center w-full px-2xl>
       <div class="logo" shrink-0 text-xl select-none>
-        <a cursor-pointer @click="router.push('/')">Jeremy</a>
+        <a cursor-pointer @click="router.push('/')">Jeremy Ye</a>
       </div>
       <div text-xl flex items-center gap-5>
         <i i="carbon-blog" icon-btn :title="t('button.blog')" @click="router.push('/blog')" />
