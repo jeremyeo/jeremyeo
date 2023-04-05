@@ -10,5 +10,6 @@ button:
 intro:
   desc: Opinionated Vite Starter Template
   illustrator: Application of SVG drawing based on fabric.js
+  roulette: Canvas roulette developed based on uni-app
 not-found: Not found
 nothing: Nothing

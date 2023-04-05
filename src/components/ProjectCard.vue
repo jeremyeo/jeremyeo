@@ -18,7 +18,7 @@ const { t } = useI18n()
     :href="project.url"
     target="_blank"
   >
-    <div class="logo" i-fluent-hand-draw-28-regular text-35px opacity-50 />
+    <div flex-shrink-0 :class="['logo', project.icon]" text-35px opacity-50 />
     <div class="info" flex="~ col" justify-center gap-1>
       <div class="name" text-5>
         {{ project.name }}

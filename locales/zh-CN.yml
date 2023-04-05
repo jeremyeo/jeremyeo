@@ -10,5 +10,6 @@ button:
 intro:
   desc: 固执己见的 Vite 项目模板
   illustrator: 基于 fabric.js 的 SVG 绘制应用
+  roulette: 基于 uni-app 开发的 Canvas 转盘
 nothing: 主人很懒什么都没有写
 not-found: 未找到页面

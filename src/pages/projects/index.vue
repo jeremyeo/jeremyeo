@@ -8,10 +8,16 @@ useHead({
 const { t } = useI18n()
 const projects: Project[] = [
   {
-    icon: 'fluent-hand-draw-28-regular',
+    icon: 'i-fluent-hand-draw-28-regular',
     name: 'Illustrator',
     desc: 'intro.illustrator',
     url: 'https://github.com/jremye/illustrator',
+  },
+  {
+    icon: 'i-uim-chart-pie',
+    name: 'Roulette',
+    desc: 'intro.roulette',
+    url: 'https://github.com/jremye/roulette',
   },
 ]
 </script>
