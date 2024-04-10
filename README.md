@@ -1,1 +1,1 @@
-[Blog](https://blog.jeremye.site)
+[Blog](https://blog.jeremye.space)
